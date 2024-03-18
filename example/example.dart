@@ -8,22 +8,22 @@ import 'dart:math' as math;
 import 'package:chartjs/chartjs.dart';
 
 void main() {
-  var rnd = math.Random();
-  var months = <String>['January', 'February', 'March', 'April', 'May', 'June'];
+  var rnd = new math.Random();
+  var months = <String>["January", "February", "March", "April", "May", "June"];
 
-  var data = LinearChartData(labels: months, datasets: <ChartDataSets>[
-    ChartDataSets(
-        label: 'My First dataset',
-        backgroundColor: 'rgba(220,220,220,0.2)',
+  var data = new LinearChartData(labels: months, datasets: <ChartDataSets>[
+    new ChartDataSets(
+        label: "My First dataset",
+        backgroundColor: "rgba(220,220,220,0.2)",
         data: months.map((_) => rnd.nextInt(100)).toList()),
-    ChartDataSets(
-        label: 'My Second dataset',
-        backgroundColor: 'rgba(151,187,205,0.2)',
+    new ChartDataSets(
+        label: "My Second dataset",
+        backgroundColor: "rgba(151,187,205,0.2)",
         data: months.map((_) => rnd.nextInt(100)).toList())
   ]);
 
-  var config = ChartConfiguration(
-      type: 'line', data: data, options: ChartOptions(responsive: true));
+  var config = new ChartConfiguration(
+      type: 'line', data: data, options: new ChartOptions(responsive: true));
 
-  Chart(querySelector('#canvas') as CanvasElement, config);
+  new Chart(querySelector('#canvas') as CanvasElement, config);
 }
